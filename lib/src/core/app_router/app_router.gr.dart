@@ -29,6 +29,17 @@ class _$AppRouter extends RootStackRouter {
         child: const NavBarScreen(),
       );
     },
+    LocationPickerRoute.name: (routeData) {
+      final args = routeData.argsAs<LocationPickerRouteArgs>();
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: WrappedRoute(
+            child: LocationPickerScreen(
+          key: args.key,
+          onPicked: args.onPicked,
+        )),
+      );
+    },
   };
 
   @override
@@ -40,6 +51,10 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           NavBarRoute.name,
           path: '/nav-bar-screen',
+        ),
+        RouteConfig(
+          LocationPickerRoute.name,
+          path: '/location-picker-screen',
         ),
       ];
 }
@@ -66,4 +81,38 @@ class NavBarRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'NavBarRoute';
+}
+
+/// generated route for
+/// [LocationPickerScreen]
+class LocationPickerRoute extends PageRouteInfo<LocationPickerRouteArgs> {
+  LocationPickerRoute({
+    Key? key,
+    required void Function(LocationEntity) onPicked,
+  }) : super(
+          LocationPickerRoute.name,
+          path: '/location-picker-screen',
+          args: LocationPickerRouteArgs(
+            key: key,
+            onPicked: onPicked,
+          ),
+        );
+
+  static const String name = 'LocationPickerRoute';
+}
+
+class LocationPickerRouteArgs {
+  const LocationPickerRouteArgs({
+    this.key,
+    required this.onPicked,
+  });
+
+  final Key? key;
+
+  final void Function(LocationEntity) onPicked;
+
+  @override
+  String toString() {
+    return 'LocationPickerRouteArgs{key: $key, onPicked: $onPicked}';
+  }
 }

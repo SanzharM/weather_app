@@ -22,11 +22,17 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "chooseLocation":
+            MessageLookupByLibrary.simpleMessage("Выберите локацию"),
         "connectTimeout": MessageLookupByLibrary.simpleMessage(
             "Превышен лимит ожидания соединения с сервером"),
         "error": MessageLookupByLibrary.simpleMessage("Ошибка"),
+        "homeScreen": MessageLookupByLibrary.simpleMessage("Главная"),
+        "locationNotFound":
+            MessageLookupByLibrary.simpleMessage("Локация не найдена"),
         "receiveTimeout": MessageLookupByLibrary.simpleMessage(
             "Превышен лимит ожидания ответа с сервера"),
+        "settings": MessageLookupByLibrary.simpleMessage("Настройки"),
         "somethingWentWrong":
             MessageLookupByLibrary.simpleMessage("Что-то пошло не так")
       };

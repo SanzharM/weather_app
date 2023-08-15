@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:weather_app/src/core/app_router/app_router.dart';
 import 'package:weather_app/src/core/l10n/l10n_service.dart';
+import 'package:weather_app/src/domain/blocs/forecasts/forecasts_bloc.dart';
+import 'package:weather_app/src/domain/blocs/geolocation/geolocation_bloc.dart';
 import 'package:weather_app/src/domain/blocs/nav_bar/nav_bar_bloc.dart';
 import 'package:weather_app/src/domain/blocs/settings/settings_bloc.dart';
 import 'package:weather_app/src/presentation/theme/app_theme.dart';
@@ -31,7 +33,15 @@ class _ApplicationState extends State<Application> {
         BlocProvider<NavBarBloc>(
           lazy: false,
           create: (_) => NavBarBloc(),
-        )
+        ),
+        BlocProvider<ForecastsBloc>(
+          lazy: false,
+          create: (_) => ForecastsBloc()..getLocations(),
+        ),
+        BlocProvider<GeolocationBloc>(
+          lazy: false,
+          create: (_) => GeolocationBloc()..initial(),
+        ),
       ],
       child: BlocBuilder<SettingsBloc, SettingsState>(
         builder: (context, state) {

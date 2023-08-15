@@ -56,6 +56,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/info.svg
   SvgGenImage get info => const SvgGenImage('assets/icons/info.svg');
 
+  /// File path: assets/icons/marker.svg
+  SvgGenImage get marker => const SvgGenImage('assets/icons/marker.svg');
+
   /// File path: assets/icons/search.svg
   SvgGenImage get search => const SvgGenImage('assets/icons/search.svg');
 

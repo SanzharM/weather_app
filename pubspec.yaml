@@ -32,6 +32,7 @@ dependencies:
   # Map
   flutter_map: ^2.2.0
   geolocator: ^7.7.1
+  geocoding: ^2.1.0
   latlong2: ^0.8.2
 
   # Services
@@ -56,6 +57,7 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
   # Generators
+  # dart run build_runner build --delete-conflicting-outputs
   build_runner:
   auto_route_generator:
   flutter_gen_runner:

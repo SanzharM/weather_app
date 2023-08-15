@@ -6,7 +6,7 @@ import 'package:weather_app/src/core/flutter_gen/generated/assets.gen.dart';
 import 'package:weather_app/src/core/flutter_gen/generated/colors.gen.dart';
 import 'package:weather_app/src/core/utils/utils.dart';
 import 'package:weather_app/src/domain/blocs/nav_bar/nav_bar_bloc.dart';
-import 'package:weather_app/src/presentation/screens/home/home_screen.dart';
+import 'package:weather_app/src/presentation/screens/forecast_screen/forecasts_screen.dart';
 import 'package:weather_app/src/presentation/screens/settings/settings_screen.dart';
 
 class NavBarScreen extends StatelessWidget {
@@ -19,11 +19,11 @@ class NavBarScreen extends StatelessWidget {
         Widget getChild() {
           switch (state.index) {
             case 0:
-              return const HomeScreen();
+              return const ForecastsScreen();
             case 1:
               return const SettingsScreen();
             default:
-              return const HomeScreen();
+              return const ForecastsScreen();
           }
         }
 
@@ -45,7 +45,7 @@ class NavBarScreen extends StatelessWidget {
             backgroundColor: context.theme.scaffoldBackgroundColor,
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
-                icon: Assets.icons.home.svg(color: getColor(0)),
+                icon: Icon(CupertinoIcons.list_bullet, color: getColor(0)),
               ),
               BottomNavigationBarItem(
                 icon: Assets.icons.settings.svg(color: getColor(1)),

@@ -47,5 +47,9 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Allow geolocation usage to view weather at your area</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Allow geolocation usage to view weather at your area</string>
 </dict>
 </plist>

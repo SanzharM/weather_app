@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:latlong2/latlong.dart';
 import 'package:weather_app/src/domain/blocs/settings/settings_bloc.dart';
 
 extension XBuildContext on BuildContext {
@@ -52,5 +55,62 @@ extension XBuildContext on BuildContext {
         ),
       ),
     );
+  }
+}
+
+extension XLocationPermission on LocationPermission {
+  bool get isDenied => this == LocationPermission.denied;
+  bool get isDeniedForever => this == LocationPermission.deniedForever;
+  bool get isAlways => this == LocationPermission.always;
+  bool get isWhileInUse => this == LocationPermission.whileInUse;
+
+  bool get isAllowed => isAlways || isWhileInUse;
+  bool get isNotAllowed => isDenied || isDeniedForever;
+}
+
+extension XMapController on MapController {
+  void animatedMove({
+    required LatLng destLocation,
+    required double destZoom,
+    required TickerProvider vsync,
+    Duration duration = const Duration(milliseconds: 500),
+  }) {
+    try {
+      final latTween = Tween<double>(
+        begin: center.latitude,
+        end: destLocation.latitude,
+      );
+      final lngTween = Tween<double>(
+        begin: center.longitude,
+        end: destLocation.longitude,
+      );
+      final zoomTween = Tween<double>(
+        begin: zoom,
+        end: destZoom,
+      );
+
+      final controller = AnimationController(duration: duration, vsync: vsync);
+      final Animation<double> animation =
+          CurvedAnimation(parent: controller, curve: Curves.fastOutSlowIn);
+
+      controller.addListener(() {
+        move(
+          LatLng(latTween.evaluate(animation), lngTween.evaluate(animation)),
+          zoomTween.evaluate(animation),
+        );
+      });
+
+      animation.addStatusListener((status) {
+        if (status == AnimationStatus.completed) {
+          controller.dispose();
+        } else if (status == AnimationStatus.dismissed) {
+          controller.dispose();
+        }
+      });
+
+      controller.forward();
+    } catch (e) {
+      move(destLocation, destZoom);
+    }
   }
 }

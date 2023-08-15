@@ -2,5 +2,9 @@
     "error": "Error",
     "somethingWentWrong": "Something went wrong",
     "connectTimeout": "Server connection timeout exceeded",
-    "receiveTimeout": "Server response timeout exceeded"
+    "receiveTimeout": "Server response timeout exceeded",
+    "homeScreen": "Home",
+    "settings": "Settings",
+    "chooseLocation": "Choose a location",
+    "locationNotFound": "Location not found"
 }

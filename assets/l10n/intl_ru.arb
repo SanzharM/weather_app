@@ -2,5 +2,9 @@
     "error": "Ошибка",
     "somethingWentWrong": "Что-то пошло не так",
     "connectTimeout": "Превышен лимит ожидания соединения с сервером",
-    "receiveTimeout": "Превышен лимит ожидания ответа с сервера"
+    "receiveTimeout": "Превышен лимит ожидания ответа с сервера",
+    "homeScreen": "Главная",
+    "settings": "Настройки",
+    "chooseLocation": "Выберите локацию",
+    "locationNotFound": "Локация не найдена"
 }

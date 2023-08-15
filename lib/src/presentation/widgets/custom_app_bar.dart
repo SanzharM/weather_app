@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/src/core/app_router/app_router.dart';
 import 'package:weather_app/src/presentation/widgets/buttons/app_icon_button.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -27,7 +28,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: needLeading ? leading ?? AppIconButton.close() : null,
+      leading: needLeading
+          ? leading ?? AppIconButton.back(onPressed: context.router.pop<void>)
+          : null,
       automaticallyImplyLeading: automaticallyImplyLeading,
       title: title?.isEmpty ?? true ? null : Text(title!),
       titleTextStyle: titleStyle,

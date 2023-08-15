@@ -22,11 +22,17 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "chooseLocation":
+            MessageLookupByLibrary.simpleMessage("Choose a location"),
         "connectTimeout": MessageLookupByLibrary.simpleMessage(
             "Server connection timeout exceeded"),
         "error": MessageLookupByLibrary.simpleMessage("Error"),
+        "homeScreen": MessageLookupByLibrary.simpleMessage("Home"),
+        "locationNotFound":
+            MessageLookupByLibrary.simpleMessage("Location not found"),
         "receiveTimeout": MessageLookupByLibrary.simpleMessage(
             "Server response timeout exceeded"),
+        "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "somethingWentWrong":
             MessageLookupByLibrary.simpleMessage("Something went wrong")
       };

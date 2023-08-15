@@ -6,4 +6,6 @@
 
     <color name="lightGrey">#EDEDED</color>
     <color name="mainGrey">#717171</color>
+    <color name="blue">#0F78DA</color>
+    <color name="blueDark">#0256A5</color>
 </resources>

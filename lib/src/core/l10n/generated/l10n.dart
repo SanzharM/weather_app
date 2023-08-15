@@ -89,6 +89,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Главная`
+  String get homeScreen {
+    return Intl.message(
+      'Главная',
+      name: 'homeScreen',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Настройки`
+  String get settings {
+    return Intl.message(
+      'Настройки',
+      name: 'settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Выберите локацию`
+  String get chooseLocation {
+    return Intl.message(
+      'Выберите локацию',
+      name: 'chooseLocation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Локация не найдена`
+  String get locationNotFound {
+    return Intl.message(
+      'Локация не найдена',
+      name: 'locationNotFound',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
